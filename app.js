@@ -1,5 +1,6 @@
 var express = require('express');
 var mongoose = require("mongoose");
+var cors = require("cors");
 
 var user = require("./user");
 
@@ -17,6 +18,9 @@ async function connectDB() {
 connectDB();
 
 var app = express();
+
+app.use(cors());
+app.use(express.json());
 
 app.use('/', (req, res) => res.send("Hello from Node API"));
 app.post("/user", async (req, res) => {
