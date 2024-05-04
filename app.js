@@ -22,7 +22,7 @@ var app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use('/', (req, res) => res.send("Hello from Node API"));
+app.get('/', (req, res) => res.send("Hello from Node API"));
 app.post("/user", async (req, res) => {
     try {
         const { name, email } = req.body;
@@ -34,7 +34,7 @@ app.post("/user", async (req, res) => {
             user: newUser
         });
     } catch (error) {
-        res.error(error)
+        res.send(error)
     }
 })
 

@@ -4,11 +4,9 @@ const mongoose = require('mongoose');
 
 // Define the user schema
 const userSchema = new mongoose.Schema({
-    username: {
+    name: {
         type: String,
         required: true,
-        unique: true, // Ensure username is unique
-        trim: true // Trim whitespace from username
     },
     email: {
         type: String,
