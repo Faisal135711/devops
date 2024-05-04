@@ -23,6 +23,19 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/api/', (req, res) => res.send("Hello from Node API"));
+
+app.get("/api/user", async (req, res) => {
+    try {
+        const users = await user.find();
+        return res.status(200).json({
+            users
+        })
+    } catch (error) {
+        console.log(error)
+        res.send(error)
+    }
+})
+
 app.post("/api/user", async (req, res) => {
     try {
         const { name, email } = req.body;
