@@ -22,8 +22,8 @@ var app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => res.send("Hello from Node API"));
-app.post("/user", async (req, res) => {
+app.get('/api/', (req, res) => res.send("Hello from Node API"));
+app.post("/api/user", async (req, res) => {
     try {
         const { name, email } = req.body;
 
