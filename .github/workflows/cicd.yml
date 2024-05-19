@@ -1,0 +1,25 @@
+name: Deploy Node Application
+on:
+  push:
+    branches:
+      - mern-ec2-docker
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Login to docker hub
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+      - name: Builder docker image
+        run: docker build -t faisal135711/nodejs-app .
+      - name: Publish this image to docker hub
+        run: docker push faisal135711/nodejs-app:latest
+  deploy:
+    needs: build
+    runs-on: self-hosted
+    steps:
+      - name: Pull image from docker hub
+        run: docker pull faisal135711/nodejs-app:latest
+      - name: Run docker container
+        run: docker run -d -p 4000:4000 --name nodejs-app-container -e MONGO_PASSWORD='${{ secrets.MONGO_PASSWORD }}' aisal135711/nodejs-app
