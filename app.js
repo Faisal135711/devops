@@ -51,8 +51,6 @@ app.post("/api/user", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT, () =>
-  console.log("Server is running on ", process.env.PORT)
-);
+app.listen(3000, () => console.log("Server is running on ", 3000));
 
 module.exports = app;
