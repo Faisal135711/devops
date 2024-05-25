@@ -7,7 +7,7 @@ pipeline {
         echo "building the application!!!"
         nodejs('Node-22.2.0') {
           sh 'npm install'
-          sh 'npm run build'
+          sh 'npm start'
         }
       }
     }
