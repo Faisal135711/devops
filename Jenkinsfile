@@ -1,6 +1,5 @@
 pipeline {
     agent any
-
     stages {
         stage('Build') {
             steps {
@@ -8,13 +7,25 @@ pipeline {
             }
         }
         stage('Test') {
-            steps {
-                echo 'Testing...'
+            parallel {
+                stage('Unit Tests') {
+                    echo 'Running unit tests...'
+                }
+                stage('Integration Test') {
+                    echo 'Running integration tests...'
+                }
             }
+            
         }
-        stage('Deploying') {
+        stage('Deploy') {
             steps {
                 echo 'Deploying...'
+            }
+        }
+        
+        stage('Code Analysis') {
+            steps {
+                echo 'Performing code analysis...'
             }
         }
     }
