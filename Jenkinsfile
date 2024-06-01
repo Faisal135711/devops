@@ -1,19 +1,36 @@
 pipeline {
     agent any
+
     environment {
-        PROJECT_NAME = 'MyProject'
-        DEPLOY_ENV = 'production'
+        NODE_VERSION = '20.x'
     }
+
+    tools {
+        nodejs "${NODE_VERSION}"
+    }
+
     stages {
-        stage('Build') {
+        stage("Install dependecies") {
             steps {
-                echo "Building ${env.PROJECT_NAME}..."
+                sh 'npm install'
             }
         }
-        stage('Deploy') {
+        stage('Build') {
             steps {
-                echo "Deploying to ${env.DEPLOY_ENV} environment..."
+                sh 'npm run build'
             }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: 'dist/**', allowEmptyArchive: true
+        }
+        success {
+            echo 'Build succeeded!'
+        }
+        failure {
+            echo 'Build failed!'
         }
     }
 }
