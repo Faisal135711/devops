@@ -9,10 +9,14 @@ pipeline {
         stage('Test') {
             parallel {
                 stage('Unit Tests') {
+                  steps {
                     echo 'Running unit tests...'
+                  }
                 }
                 stage('Integration Test') {
+                  steps {
                     echo 'Running integration tests...'
+                  }
                 }
             }
             
