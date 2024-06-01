@@ -1,47 +1,19 @@
 pipeline {
     agent any
+    environment {
+        PROJECT_NAME = 'MyProject'
+        DEPLOY_ENV = 'production'
+    }
     stages {
         stage('Build') {
             steps {
-                echo 'Building...'
+                echo "Building ${env.PROJECT_NAME}..."
             }
-        }
-        stage('Test') {
-            parallel {
-                stage('Unit Tests') {
-                  steps {
-                    echo 'Running unit tests...'
-                  }
-                }
-                stage('Integration Test') {
-                  steps {
-                    echo 'Running integration tests...'
-                  }
-                }
-            }
-            
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying...'
+                echo "Deploying to ${env.DEPLOY_ENV} environment..."
             }
-        }
-        
-        stage('Code Analysis') {
-            steps {
-                echo 'Performing code analysis...'
-            }
-        }
-    }
-    post {
-        always {
-            echo 'Cleaning up...'
-        }
-        success {
-            echo 'Build succeeded!'
-        }
-        failure {
-            echo 'Build failed!'
         }
     }
 }
