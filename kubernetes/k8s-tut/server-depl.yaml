@@ -15,7 +15,13 @@ spec:
     spec:
       containers:
         - name: server
-          image: laithharb/server:v1
+          image: laithharb/server:v2
+          env:
+            - name: MONGO_URL
+              valueFrom:
+                secretKeyRef:
+                  key: mongo-url
+                  name: mongo-credentials
 
 ---
 
@@ -24,10 +30,9 @@ kind: Service
 metadata:
   name: server-srv
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: server
   ports:
     - port: 3000
       targetPort: 3000
-      nodePort: 30005

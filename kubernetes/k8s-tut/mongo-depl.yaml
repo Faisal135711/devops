@@ -16,6 +16,14 @@ spec:
       containers:
         - name: mongo
           image: mongo
+          volumeMounts:
+            - mountPath: /data/db
+              name: mongo-storage
+      volumes:
+        - name: mongo-storage
+          persistentVolumeClaim:
+            claimName: mongo-pvc
+
 
 ---
 

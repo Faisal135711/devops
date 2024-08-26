@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: laithharb/web-app:v1
+          image: laithharb/web-app:v2
 
 ---
 
@@ -24,10 +24,9 @@ kind: Service
 metadata:
   name: client-srv
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: client
   ports:
     - port: 3000
       targetPort: 3000
-      nodePort: 30007
