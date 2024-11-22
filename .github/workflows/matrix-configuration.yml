@@ -18,9 +18,7 @@ jobs:
         include:
           - images: amd64/alpine
             os: ubuntu-20.04
-
     runs-on: ${{ matrix.os }}
-
     steps:
       - name: Echo docker details
         run: docker info
