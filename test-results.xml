@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="1.707" tests="11" failures="8">
+  <testsuite name="Root Suite" timestamp="2024-11-25T16:57:44" tests="0" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Planets API Suite" timestamp="2024-11-25T16:57:44" tests="0" file="/home/faisal-ahmed/Desktop/Faisal/devops/app-test.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Fetching Planet Details" timestamp="2024-11-25T16:57:44" tests="8" file="/home/faisal-ahmed/Desktop/Faisal/devops/app-test.js" time="1.649" failures="8">
+    <testcase name="Planets API Suite Fetching Planet Details it should fetch a planet named Mercury" time="1.055" classname="it should fetch a planet named Mercury">
+      <failure message="expected {} to have property &apos;id&apos;" type="AssertionError"><![CDATA[AssertionError: expected {} to have property 'id'
+    at /home/faisal-ahmed/Desktop/Faisal/devops/app-test.js:23:42
+    at Request.callback (node_modules/superagent/lib/node/index.js:857:12)
+    at IncomingMessage.<anonymous> (node_modules/superagent/lib/node/index.js:1070:18)
+    at IncomingMessage.emit (node:events:531:35)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)]]></failure>
+    </testcase>
+    <testcase name="Planets API Suite Fetching Planet Details it should fetch a planet named Venus" time="0.081" classname="it should fetch a planet named Venus">
+      <failure message="expected {} to have property &apos;id&apos;" type="AssertionError"><![CDATA[AssertionError: expected {} to have property 'id'
+    at /home/faisal-ahmed/Desktop/Faisal/devops/app-test.js:38:42
+    at Request.callback (node_modules/superagent/lib/node/index.js:857:12)
+    at IncomingMessage.<anonymous> (node_modules/superagent/lib/node/index.js:1070:18)
+    at IncomingMessage.emit (node:events:531:35)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)]]></failure>
+    </testcase>
+    <testcase name="Planets API Suite Fetching Planet Details it should fetch a planet named Earth" time="0.092" classname="it should fetch a planet named Earth">
+      <failure message="expected {} to have property &apos;id&apos;" type="AssertionError"><![CDATA[AssertionError: expected {} to have property 'id'
+    at /home/faisal-ahmed/Desktop/Faisal/devops/app-test.js:53:42
+    at Request.callback (node_modules/superagent/lib/node/index.js:857:12)
+    at IncomingMessage.<anonymous> (node_modules/superagent/lib/node/index.js:1070:18)
+    at IncomingMessage.emit (node:events:531:35)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)]]></failure>
+    </testcase>
+    <testcase name="Planets API Suite Fetching Planet Details it should fetch a planet named Mars" time="0.086" classname="it should fetch a planet named Mars">
+      <failure message="expected {} to have property &apos;id&apos;" type="AssertionError"><![CDATA[AssertionError: expected {} to have property 'id'
+    at /home/faisal-ahmed/Desktop/Faisal/devops/app-test.js:67:42
+    at Request.callback (node_modules/superagent/lib/node/index.js:857:12)
+    at IncomingMessage.<anonymous> (node_modules/superagent/lib/node/index.js:1070:18)
+    at IncomingMessage.emit (node:events:531:35)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)]]></failure>
+    </testcase>
+    <testcase name="Planets API Suite Fetching Planet Details it should fetch a planet named Jupiter" time="0.083" classname="it should fetch a planet named Jupiter">
+      <failure message="expected {} to have property &apos;id&apos;" type="AssertionError"><![CDATA[AssertionError: expected {} to have property 'id'
+    at /home/faisal-ahmed/Desktop/Faisal/devops/app-test.js:82:42
+    at Request.callback (node_modules/superagent/lib/node/index.js:857:12)
+    at IncomingMessage.<anonymous> (node_modules/superagent/lib/node/index.js:1070:18)
+    at IncomingMessage.emit (node:events:531:35)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)]]></failure>
+    </testcase>
+    <testcase name="Planets API Suite Fetching Planet Details it should fetch a planet named Satrun" time="0.083" classname="it should fetch a planet named Satrun">
+      <failure message="expected {} to have property &apos;id&apos;" type="AssertionError"><![CDATA[AssertionError: expected {} to have property 'id'
+    at /home/faisal-ahmed/Desktop/Faisal/devops/app-test.js:97:42
+    at Request.callback (node_modules/superagent/lib/node/index.js:857:12)
+    at IncomingMessage.<anonymous> (node_modules/superagent/lib/node/index.js:1070:18)
+    at IncomingMessage.emit (node:events:531:35)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)]]></failure>
+    </testcase>
+    <testcase name="Planets API Suite Fetching Planet Details it should fetch a planet named Uranus" time="0.081" classname="it should fetch a planet named Uranus">
+      <failure message="expected {} to have property &apos;id&apos;" type="AssertionError"><![CDATA[AssertionError: expected {} to have property 'id'
+    at /home/faisal-ahmed/Desktop/Faisal/devops/app-test.js:112:42
+    at Request.callback (node_modules/superagent/lib/node/index.js:857:12)
+    at IncomingMessage.<anonymous> (node_modules/superagent/lib/node/index.js:1070:18)
+    at IncomingMessage.emit (node:events:531:35)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)]]></failure>
+    </testcase>
+    <testcase name="Planets API Suite Fetching Planet Details it should fetch a planet named Neptune" time="0.079" classname="it should fetch a planet named Neptune">
+      <failure message="expected {} to have property &apos;id&apos;" type="AssertionError"><![CDATA[AssertionError: expected {} to have property 'id'
+    at /home/faisal-ahmed/Desktop/Faisal/devops/app-test.js:127:42
+    at Request.callback (node_modules/superagent/lib/node/index.js:857:12)
+    at IncomingMessage.<anonymous> (node_modules/superagent/lib/node/index.js:1070:18)
+    at IncomingMessage.emit (node:events:531:35)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)]]></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Testing Other Endpoints" timestamp="2024-11-25T16:57:45" tests="0" file="/home/faisal-ahmed/Desktop/Faisal/devops/app-test.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="it should fetch OS Details" timestamp="2024-11-25T16:57:45" tests="1" file="/home/faisal-ahmed/Desktop/Faisal/devops/app-test.js" time="0.015" failures="0">
+    <testcase name="Testing Other Endpoints it should fetch OS Details it should fetch OS details" time="0.010" classname="it should fetch OS details">
+    </testcase>
+  </testsuite>
+  <testsuite name="it should fetch Live Status" timestamp="2024-11-25T16:57:45" tests="1" file="/home/faisal-ahmed/Desktop/Faisal/devops/app-test.js" time="0.003" failures="0">
+    <testcase name="Testing Other Endpoints it should fetch Live Status it checks Liveness endpoint" time="0.003" classname="it checks Liveness endpoint">
+    </testcase>
+  </testsuite>
+  <testsuite name="it should fetch Ready Status" timestamp="2024-11-25T16:57:45" tests="1" file="/home/faisal-ahmed/Desktop/Faisal/devops/app-test.js" time="0.002" failures="0">
+    <testcase name="Testing Other Endpoints it should fetch Ready Status it checks Readiness endpoint" time="0.001" classname="it checks Readiness endpoint">
+    </testcase>
+  </testsuite>
+</testsuites>
