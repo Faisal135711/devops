@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.254" tests="1" failures="0">
+  <testsuite name="Root Suite" timestamp="2024-11-26T16:35:31" tests="0" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="JSONPlaceholder API Test Suite" timestamp="2024-11-26T16:35:31" tests="1" file="/home/faisal-ahmed/Desktop/Faisal/devops/app-test.js" time="0.253" failures="0">
+    <testcase name="JSONPlaceholder API Test Suite should fetch a post with ID 1" time="0.252" classname="should fetch a post with ID 1">
+    </testcase>
+  </testsuite>
+</testsuites>
