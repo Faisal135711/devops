@@ -1,5 +1,6 @@
-import './HelpBox.css';
+import "./HelpBox.css";
 
+// add comment
 function HelpBox({ title, text }) {
   return (
     <article className="help-box">
