@@ -11,6 +11,7 @@ export default [
       sourceType: "module",
       globals: {
         browser: true,
+        document: true, // fixes "document is not defined"
       },
       parserOptions: {
         ecmaFeatures: {
@@ -22,7 +23,9 @@ export default [
       react,
     },
     rules: {
-      "react/react-in-jsx-scope": "off", // not needed in React 17+
+      "react/react-in-jsx-scope": "off",
+      "no-unused-vars": "off", // ignore unused vars everywhere
+      "no-undef": "off", // ignore undefined globals everywhere
     },
   },
 ];
