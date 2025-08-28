@@ -1,4 +1,4 @@
-name: Website Deployment
+name: Continue Website Deployment
 on:
   push:
     branches:
@@ -62,7 +62,7 @@ jobs:
         id: build-website
         run: npm run build
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: dist-files
           path: dist
