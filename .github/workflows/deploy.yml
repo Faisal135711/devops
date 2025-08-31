@@ -11,10 +11,16 @@ jobs:
   test:
     environment: testing
     env:
-      MONGODB_CLUSTER_ADDRESS: cluster0.2m6xqeo.mongodb.net
-      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
-      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
+      MONGODB_CLUSTER_ADDRESS: mongodb
+      MONGODB_USERNAME: root
+      MONGODB_PASSWORD: example
       PORT: 8080
+    services:
+      mongodb:
+        image: mongo
+        env:
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: example
     runs-on: ubuntu-latest
     container:
       image: node:18
@@ -36,7 +42,7 @@ jobs:
         run: |
           echo "MONGODB_USERNAME: $MONGODB_USERNAME"
   deploy:
-    needs: test
+    needs: [test]
     runs-on: ubuntu-latest
     steps:
       - name: Output information
