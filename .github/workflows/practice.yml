@@ -52,4 +52,4 @@ jobs:
         with:
           name: vite-build
       - name: List files after download in CD
-        run: ls -la dist
+        run: ls -la
