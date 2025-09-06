@@ -53,3 +53,8 @@ jobs:
           name: vite-build
       - name: List files after download in CD
         run: ls -la
+      - name: Deploy to github pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./vite-build
