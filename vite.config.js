@@ -8,4 +8,5 @@ export default defineConfig({
     globals: true, // allow using test/expect without imports
     environment: "jsdom",
   },
+  base: "/devops/",
 });
