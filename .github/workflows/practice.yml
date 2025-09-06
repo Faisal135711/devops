@@ -53,6 +53,7 @@ jobs:
         uses: actions/download-artifact@v5.0.0
         with:
           name: vite-build
+          path: dist
       - name: List files after download in CD
         run: ls -la
       - name: Deploy to github pages
