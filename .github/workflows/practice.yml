@@ -41,5 +41,15 @@ jobs:
         with:
           name: vite-build
 
-      - name: List files
+      - name: List files after download
+        run: ls -la dist
+  cd:
+    needs: ci
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v5.0.0
+        with:
+          name: vite-build
+      - name: List files after download in CD
         run: ls -la dist
