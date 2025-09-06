@@ -7,7 +7,7 @@ on:
     branches:
       - main
 jobs:
-  deploy:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -34,3 +34,12 @@ jobs:
         with:
           name: vite-build
           path: dist
+      - name: List files
+        run: ls -la dist
+      - name: Download artifact
+        uses: actions/download-artifact@v5.0.0
+        with:
+          name: vite-build
+
+      - name: List files
+        run: ls -la dist
