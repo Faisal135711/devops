@@ -1,9 +1,10 @@
-name: Practice Workflow
+name: Main Deploy Workflow
 on:
   pull_request:
     branches: ["*"]
   push:
     branches: ["*"]
+
 permissions:
   contents: read
   pages: write
@@ -14,52 +15,28 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # This job runs linting and tests across multiple node versions
   test:
-    runs-on: ubuntu-latest
+    name: Test on Node ${{ matrix.node-version }}
     strategy:
       matrix:
         node-version: [18, 20]
-    steps:
-      - name: Get code
-        uses: actions/checkout@v4
-      - name: Setup nodejs ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "npm"
-      - name: Install dependencies
-        run: npm ci
-      - name: Run lint
-        run: npm run lint
-      - name: Run tests
-        run: npm run test
+    uses: ./.github/workflows/ci-workflow.yml
+    with:
+      node-version: ${{ matrix.node-version }}
+      run-build-and-deploy: false
 
-  # This job builds the application after all tests have passed
   build:
+    name: Build Project
     needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get code
-        uses: actions/checkout@v4
-      - name: Setup nodejs
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: "npm"
-      - name: Install dependencies
-        run: npm ci
-      - name: Build
-        run: npm run build
-      - name: Upload artifact for deployment
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
+    uses: ./.github/workflows/ci-workflow.yml
+    with:
+      node-version: 20
+      run-build-and-deploy: true
 
-  # This job deploys the artifact to GitHub Pages
   deploy:
-    needs: build
+    name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
+    needs: build
     if: github.ref == 'refs/heads/main'
     environment:
       name: github-pages
