@@ -1,11 +1,11 @@
-name: Deploy Vite Project to GitHub Pages
-
+name: Practice Workflow
 on:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
       - main
-  workflow_dispatch:
-
 permissions:
   contents: read
   pages: write
@@ -14,16 +14,18 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: false
+
 jobs:
-  build:
+  # This job runs your tests and builds the application
+  ci:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [18, 20]
     steps:
-      - name: Checkout code
+      - name: Get code
         uses: actions/checkout@v4
-      - name: Set up Node.js
+      - name: Setup nodejs
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
@@ -34,17 +36,16 @@ jobs:
         run: npm run lint
       - name: Run tests
         run: npm run test
-      - name: Build project
+      - name: Build
         run: npm run build
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
+      - name: Upload artifact for deployment
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./dist"
+          path: dist
 
-  deploy:
-    needs: build
+  # This job deploys the artifact to GitHub Pages
+  cd:
+    needs: ci
     runs-on: ubuntu-latest
     environment:
       name: github-pages
