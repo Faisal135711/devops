@@ -16,8 +16,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # This job runs your tests and builds the application
-  ci:
+  # This job runs linting and tests across multiple node versions
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -25,7 +25,7 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v4
-      - name: Setup nodejs
+      - name: Setup nodejs ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
@@ -36,6 +36,21 @@ jobs:
         run: npm run lint
       - name: Run tests
         run: npm run test
+
+  # This job builds the application after all tests have passed
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Setup nodejs
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+      - name: Install dependencies
+        run: npm ci
       - name: Build
         run: npm run build
       - name: Upload artifact for deployment
@@ -44,8 +59,8 @@ jobs:
           path: dist
 
   # This job deploys the artifact to GitHub Pages
-  cd:
-    needs: ci
+  deploy:
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
