@@ -1,11 +1,9 @@
 name: Practice Workflow
 on:
   pull_request:
-    branches:
-      - main
+    branches: ["*"]
   push:
-    branches:
-      - main
+    branches: ["*"]
 permissions:
   contents: read
   pages: write
@@ -62,6 +60,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
